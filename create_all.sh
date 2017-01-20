@@ -4,8 +4,9 @@ PATH=`pwd`:$PATH
 
 prepare_key.sh
 
-mons="a b c"
+mons="a"
 for m in $mons; do
+	mon.sh $m
 	start_mon.sh $m	
 done
 
