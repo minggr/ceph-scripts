@@ -6,4 +6,8 @@ CXXFLAGS="-ggdb -g -O0" CFLAGS="-ggdb -g -O0" ./configure --prefix=$HOME/ceph-in
 make -j `getconf _NPROCESSORS_ONLN` && make install
 
 #master branch
-cmake -DCMAKE_BUILD_TYPE=Debug ..
+cd ceph
+mkdir build
+cd build
+cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX="/root/ceph-install" -DCMAKE_C_FLAGS="-ggdb -g -O0" -DBOOST_J=$(nproc) ..
+make -j $(nproc) && make install
