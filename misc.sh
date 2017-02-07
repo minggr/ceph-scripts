@@ -16,4 +16,5 @@ ceph osd pool create myecpool 100 100 erasure
 ceph osd tier add myecpool hot-storage
 ceph osd tier cache-mode hot-storage writeback
 ceph osd tier set-overlay myecpool hot-storage
+ceph osd pool set hot-storage hit_set_type bloom
 rbd create --size 10G myecpool/myvolume
